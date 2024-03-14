@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyApplicationComponet</string>
+
+    <string name="nombreEmpresa">Burger King SRL</string>
+
+
 </resources>
