@@ -3,6 +3,7 @@ package com.example.spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cargarR();
+        cargarDataSpinner();
     }
     public void cargarR(){
         cj1 = (EditText) findViewById(R.id.txt1);
@@ -30,6 +32,30 @@ public class MainActivity extends AppCompatActivity {
     }
     public void cargarDataSpinner(){
         String [] operaciones = {"suma", "resta", "multiplicacion","division"};
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,operaciones);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, operaciones);
+        sp.setAdapter(arrayAdapter);
+    }
+    public void estadoBoton(){
+        btnOp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //String valor = sp.getSelectedItem().toString();
+                if(sp.getSelectedItem().toString().equals("suma")){
+                    tvResul.setText(String.valueOf(Integer.parseInt(cj1.getText().toString())+Integer.parseInt(cj2.getText().toString())));
+                } else if (sp.getSelectedItem().toString().equals("resta")) {
+                    tvResul.setText(String.valueOf(Integer.parseInt(cj1.getText().toString())-Integer.parseInt(cj2.getText().toString())));
+                } else if (sp.getSelectedItem().toString().equals("multiplicacion")) {
+                    tvResul.setText(String.valueOf(Integer.parseInt(cj1.getText().toString())*Integer.parseInt(cj2.getText().toString())));
+                } else if (sp.getSelectedItem().toString().equals("division")) {
+                    if (Integer.parseInt(cj2.getText().toString()) != 0)
+                    {
+                        tvResul.setText(String.valueOf(Integer.parseInt(cj1.getText().toString())/Integer.parseInt(cj2.getText().toString())));
+                    }else {
+                        tvResul.setText("error.....");
+
+                    }
+                }
+            }
+        });
     }
 }
