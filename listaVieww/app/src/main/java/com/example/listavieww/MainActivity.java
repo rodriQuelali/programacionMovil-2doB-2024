@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void llenadoPaises(){
         //ArrayList
-        
+
         String [] paises = {"Bolivia", "Peru", "Argentina", "Chile", "Paraguay", "Brasil", "Venezuela", "Ecuador", "Colombia"};
         String [] habitantes = {"25550", "1555", "30000", "58888", "10000", "150000", "1200000", "25555", "258888"};
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,paises);
