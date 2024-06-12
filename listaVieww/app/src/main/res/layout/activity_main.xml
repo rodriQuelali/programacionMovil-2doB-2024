@@ -24,10 +24,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
         android:orientation="vertical"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <EditText
+            android:id="@+id/txtPais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="PAIS....."
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AGREGAR" />
 
         <TextView
             android:id="@+id/tvResul"
