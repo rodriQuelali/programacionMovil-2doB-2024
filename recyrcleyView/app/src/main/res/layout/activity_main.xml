@@ -26,6 +26,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaRPersona"
         android:layout_width="405dp"
         android:layout_height="693dp"
         android:layout_marginTop="9dp"
