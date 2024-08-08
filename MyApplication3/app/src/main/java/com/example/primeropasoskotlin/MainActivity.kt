@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ListView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
@@ -20,6 +21,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var txtPrecio:EditText
     lateinit var tvResul:TextView
     lateinit var spList: Spinner
+    lateinit var txtNom:EditText
+    lateinit var listPro:ListView
+
+    lateinit var listaProductosMutable:MutableList<String>
+    lateinit var arrayAdapterProducto:ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         //codigo
         cargarR()
         estadoButon()
+        cargarLista()
 
         val listaPaises= arrayOf("USA","BOL","ESP")
         val listaIVAAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,listaPaises)
@@ -45,19 +52,29 @@ class MainActivity : AppCompatActivity() {
         txtPrecio = findViewById(R.id.txtPrecio)
         tvResul = findViewById(R.id.tvResultado)
         spList = findViewById(R.id.spListaPaises)
+        txtNom = findViewById(R.id.txtNom)
+        listPro = findViewById(R.id.listProducto)
     }
 
     //estados de botton
     fun estadoButon(){
         btnCal.setOnClickListener(){
             var precio: Double = txtPrecio.text.toString().toDouble()
-            val laptop = Productos("Laptop", precio)
+            var laptop = Productos(txtNom.text.toString(), precio)
             when(spList.selectedItem.toString()){
-                "USA" -> tvResul.text = laptop.calcularIVA(0.03).toString()
-                "BOL" -> tvResul.text = laptop.calcularIVA(0.13).toString()
-                "ESP" -> tvResul.text = laptop.calcularIVA(0.05).toString()
+                "USA" -> listaProductosMutable.add(laptop.nombre + ", "+laptop.calcularIVA(0.03).toString())
+                "BOL" -> listaProductosMutable.add(laptop.nombre + ", "+laptop.calcularIVA(0.13).toString())
+                "ESP" -> listaProductosMutable.add(laptop.nombre + ", "+laptop.calcularIVA(0.05).toString())
             }
+            listPro.adapter = arrayAdapterProducto
 
         }
+    }
+
+    fun cargarLista(){
+        //var listaArrayProducto = arrayOf("laptop", "computadora")
+        listaProductosMutable = mutableListOf<String>()
+        arrayAdapterProducto = ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listaProductosMutable)
+        listPro.adapter = arrayAdapterProducto
     }
 }
