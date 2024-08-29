@@ -19,7 +19,6 @@ class Productos : AppCompatActivity() {
     lateinit var txtNombre: EditText
     lateinit var txtPrecio: EditText
     lateinit var txtCodigo: EditText
-class Productos : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
