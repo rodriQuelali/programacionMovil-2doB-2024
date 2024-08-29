@@ -26,7 +26,7 @@ class Login : AppCompatActivity() {
     }
     //crear la funcion de cargar R
     fun cargarR(){
-        btnLogin = findViewById(R.id.loginButton)
+        btnLogin = findViewById(R.id.btnRegistrarProducto)
     }
 
     //estado button
