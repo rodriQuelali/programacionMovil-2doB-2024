@@ -13,11 +13,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.helper.widget.Carousel.Adapter
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.primeropasoskotlin.db.AdminSQLiteOpenHelper
 import com.example.primeropasoskotlin.models.Productos
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var btnCal:Button
+    lateinit var btnBuscar:Button
     lateinit var txtPrecio:EditText
     lateinit var tvResul:TextView
     lateinit var spList: Spinner
@@ -54,6 +56,8 @@ class MainActivity : AppCompatActivity() {
         spList = findViewById(R.id.spListaPaises)
         txtNom = findViewById(R.id.txtNom)
         listPro = findViewById(R.id.listProducto)
+
+        btnBuscar=findViewById(R.id.btnBuscar)
     }
 
     //estados de botton
@@ -68,6 +72,19 @@ class MainActivity : AppCompatActivity() {
             }
             listPro.adapter = arrayAdapterProducto
 
+        }
+
+        //al biton buscar
+        btnBuscar.setOnClickListener{
+            val admin = AdminSQLiteOpenHelper(this, "administracion", null, 1)
+            val bd = admin.writableDatabase
+            val fila = bd.rawQuery("select nombre,precio from producto where id_producto=${txtNom.text.toString()}", null)
+            if (fila.moveToFirst()) {
+                txtNom.setText(fila.getString(0))
+                txtPrecio.setText(fila.getString(1))
+            } else
+                Toast.makeText(this, "No existe un producto con dicho código",  Toast.LENGTH_SHORT).show()
+            bd.close()
         }
     }
 
