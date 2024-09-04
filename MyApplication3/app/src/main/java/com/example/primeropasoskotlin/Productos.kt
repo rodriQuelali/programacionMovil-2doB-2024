@@ -20,6 +20,8 @@ class Productos : AppCompatActivity() {
     lateinit var txtPrecio: EditText
     lateinit var txtCodigo: EditText
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
