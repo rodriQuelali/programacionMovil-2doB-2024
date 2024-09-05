@@ -66,9 +66,9 @@ class MainActivity : AppCompatActivity() {
             var precio: Double = txtPrecio.text.toString().toDouble()
             var laptop = Productos(txtNom.text.toString(), precio)
             when(spList.selectedItem.toString()){
-                "USA" -> listaProductosMutable.add(laptop.nombre + ", "+laptop.calcularIVA(0.03).toString())
-                "BOL" -> listaProductosMutable.add(laptop.nombre + ", "+laptop.calcularIVA(0.13).toString())
-                "ESP" -> listaProductosMutable.add(laptop.nombre + ", "+laptop.calcularIVA(0.05).toString())
+                "USA" -> listaProductosMutable.add(laptop.getNombre()+ ", "+laptop.calcularIVA(0.03).toString())
+                "BOL" -> listaProductosMutable.add(laptop.getNombre() + ", "+laptop.calcularIVA(0.13).toString())
+                "ESP" -> listaProductosMutable.add(laptop.getNombre() + ", "+laptop.calcularIVA(0.05).toString())
             }
             listPro.adapter = arrayAdapterProducto
 
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         btnBuscar.setOnClickListener{
             val admin = AdminSQLiteOpenHelper(this, "administracion", null, 1)
             val bd = admin.writableDatabase
-            val fila = bd.rawQuery("select nombre,precio from producto where id_producto=${txtNom.text.toString()}", null)
+            val fila = bd.rawQuery("select * from producto where id_producto=${txtNom.text.toString()}", null)
             if (fila.moveToFirst()) {
                 txtNom.setText(fila.getString(0))
                 txtPrecio.setText(fila.getString(1))
