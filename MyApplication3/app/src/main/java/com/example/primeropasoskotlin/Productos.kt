@@ -13,14 +13,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 import com.example.primeropasoskotlin.db.AdminSQLiteOpenHelper
+import com.example.primeropasoskotlin.models.Productos
 
 class Productos : AppCompatActivity() {
     lateinit var btnAgregar:Button
     lateinit var txtNombre: EditText
     lateinit var txtPrecio: EditText
     lateinit var txtCodigo: EditText
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +42,13 @@ class Productos : AppCompatActivity() {
     }
     fun estadoButon(){
         btnAgregar.setOnClickListener{
+            val obj = Productos(txtNombre.getText().toString(),txtPrecio.getText().toString().toDouble())
             val admin = AdminSQLiteOpenHelper(this,"administracion", null, 1)
             val bd = admin.writableDatabase
             val registro = ContentValues()
             registro.put("id_producto", txtCodigo.getText().toString())
-            registro.put("nombre", txtNombre.getText().toString())
-            registro.put("precio", txtPrecio.getText().toString())
+            registro.put("nombre", obj.getNombre())
+            registro.put("precio", obj.getPrecio())
             bd.insert("producto", null, registro)
             bd.close()
             txtCodigo.setText("")
