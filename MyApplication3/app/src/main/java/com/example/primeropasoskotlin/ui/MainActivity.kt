@@ -1,4 +1,4 @@
-package com.example.primeropasoskotlin
+package com.example.primeropasoskotlin.ui
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -10,9 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.helper.widget.Carousel.Adapter
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.primeropasoskotlin.R
 import com.example.primeropasoskotlin.db.AdminSQLiteOpenHelper
 import com.example.primeropasoskotlin.models.Productos
 
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
     fun estadoButon(){
         btnCal.setOnClickListener(){
             var precio: Double = txtPrecio.text.toString().toDouble()
-            var laptop = Productos(txtNom.text.toString(), precio)
+            var laptop = Productos(2,2,3,txtNom.text.toString(), precio)
             when(spList.selectedItem.toString()){
                 "USA" -> listaProductosMutable.add(laptop.getNombre()+ ", "+laptop.calcularIVA(0.03).toString())
                 "BOL" -> listaProductosMutable.add(laptop.getNombre() + ", "+laptop.calcularIVA(0.13).toString())
@@ -76,14 +76,18 @@ class MainActivity : AppCompatActivity() {
 
         //al biton buscar
         btnBuscar.setOnClickListener{
+
             val admin = AdminSQLiteOpenHelper(this, "administracion", null, 1)
             val bd = admin.writableDatabase
             val fila = bd.rawQuery("select * from producto where id_producto=${txtNom.text.toString()}", null)
+
             if (fila.moveToFirst()) {
+                //println("datossssssssssssssss${fila.getString(1)}")
                 txtNom.setText(fila.getString(0))
                 txtPrecio.setText(fila.getString(1))
-            } else
+            } else{
                 Toast.makeText(this, "No existe un producto con dicho código",  Toast.LENGTH_SHORT).show()
+            }
             bd.close()
         }
     }

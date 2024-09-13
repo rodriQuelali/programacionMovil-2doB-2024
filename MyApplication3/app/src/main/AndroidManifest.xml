@@ -13,13 +13,22 @@
         android:theme="@style/Theme.PrimeroPasosKotlin"
         tools:targetApi="31">
         <activity
-            android:name=".Productos"
+            android:name=".ui.Ventas"
             android:exported="false" />
         <activity
-            android:name=".Home"
+            android:name=".ui.Proveedor"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.Categoria"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Productos"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Home"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MainActivity"
             android:exported="false" />
         <activity
             android:name=".Login"
