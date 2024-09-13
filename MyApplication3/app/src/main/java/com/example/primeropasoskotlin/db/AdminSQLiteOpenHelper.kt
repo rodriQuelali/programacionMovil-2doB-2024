@@ -42,6 +42,7 @@ class AdminSQLiteOpenHelper(
                 "cantidad INTEGER, " +
                 "precio_total REAL, " +
                 "cliente TEXT," +
+                "fecha TEXT," +
                 "FOREIGN KEY (id_producto) REFERENCES producto(id_producto))"
         )
     }

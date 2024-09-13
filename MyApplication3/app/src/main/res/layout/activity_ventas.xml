@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Productos">
+    tools:context=".ui.Ventas">
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="PRODUCTO"
+        android:text="VENTA"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -34,124 +34,134 @@
 
         <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/textField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Codigo de producto"
-        app:helperText="Ingrese codigo de producto">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtCodigoProducto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField4"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Nombre o codigo categoria"
-                app:helperText="Ingrese Nombre o Codigo de Categoria">
-
-                <com.google.android.material.textfield.TextInputEditText
-
-                    android:id="@+id/txtBusCategoria"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btnBuscarCategoria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Buscar Categoria" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField5"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Nombre o codigo Proveedor"
-                app:helperText="Ingrese Nombre o codigo de Proveedor">
-
-                <com.google.android.material.textfield.TextInputEditText
-
-                    android:id="@+id/txtBusProvee"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btnBuscarProveedor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Buscar Proveedor" />
-
-        </LinearLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField2"
-
+            android:id="@+id/textField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre"
-            app:helperText="Ingrese Nombre de producto">
+            android:hint="Codigo de Venta"
+            app:helperText="Ingrese codigo de Venta">
 
             <com.google.android.material.textfield.TextInputEditText
-
-                android:id="@+id/txtNombreProducto"
-
+                android:id="@+id/txtCodigoVenta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="367dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textField2"
+
+                android:layout_width="221dp"
+                android:layout_height="wrap_content"
+                android:hint="Nombre Producto"
+                app:helperText="Ingrese Producto">
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:id="@+id/txtBuscarProducto"
+
+                    android:layout_width="208dp"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+
+                android:id="@+id/btnBuscarProducto"
+
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                android:backgroundTint="@color/black"
+                android:minHeight="50dip"
+                android:text="BUSCAR PRODUCTO"
+
+                android:textColor="@color/white" />
+        </LinearLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Precio"
-            app:helperText="Ingrese el precio">
+            android:layout_marginTop="5dp"
+            android:hint="Cantidad ...."
+
+            app:helperText="Cantidad">
 
             <com.google.android.material.textfield.TextInputEditText
 
-                android:id="@+id/txtPrecioProducto"
+                android:id="@+id/txtCantidad"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                 />
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Precio Total"
+
+            app:helperText="Ingrese Precio Total">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:id="@+id/txtPrecioTotal"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Ingrese cliente"
+
+            app:helperText="Ingrese Cliente">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:id="@+id/txtCliente"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Fecha de venta"
+
+            app:helperText="Ingrese Fecha de Venta">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:id="@+id/txtPrecioTotal"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
 
-            android:id="@+id/btnRegistrarProducto"
+            android:id="@+id/btnRegistrarVenta"
 
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:backgroundTint="@color/black"
-            android:text="AGREGAR"
+            android:text="REALIZAR VENTA"
             android:textColor="@color/white"
             />
 
