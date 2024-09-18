@@ -21,4 +21,9 @@ class Venta constructor(private var id_venta:Int, private var id_producto:Int,pr
         return this.fecha
     }
 
+    companion object{
+        fun calcularCantidad(productos:Productos, cantidad: Int):Double {
+            return cantidad * productos.getPrecio()
+        }
+    }
 }

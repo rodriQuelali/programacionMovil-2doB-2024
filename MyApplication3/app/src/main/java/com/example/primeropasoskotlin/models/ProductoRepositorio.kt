@@ -26,6 +26,24 @@ class ProductoRepositorio(context:Context) {
         }
     }
 
+    fun buscarProductoPorId(id: String): Productos? {
+        val db = adminSQLiteOpenHelper.readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM producto WHERE id_producto=$id", null)
+
+        return if (cursor.moveToFirst()) {
+            val id_producto: Int = cursor.getInt(cursor.getColumnIndexOrThrow("id_producto")).toInt()
+            val id_categoria = cursor.getInt(cursor.getColumnIndexOrThrow("id_categoria"))
+            val id_proveedor = cursor.getInt(cursor.getColumnIndexOrThrow("id_proveedor"))
+            val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
+            val precio = cursor.getInt(cursor.getColumnIndexOrThrow("precio"))
+            cursor.close()
+            Productos(id_producto,id_categoria,id_proveedor, nombre, precio.toDouble())
+        } else {
+            cursor.close()
+            null
+        }
+    }
+
     // Eliminar un producto (aún no implementado completamente)
     fun deletePro(producto: Productos): Int {
 
