@@ -18,4 +18,8 @@ class ProductoViewModel(aplication:Application):AndroidViewModel(aplication) {
     fun insertarProducto(productos: Productos):Int{
         return  productoDao.insertarProducto(productos)
     }
+
+    fun buscarProductoPorId(id:String): Productos?{
+        return productoDao.buscarProductoPorId(id)
+    }
 }
