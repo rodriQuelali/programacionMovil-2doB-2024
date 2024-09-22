@@ -38,6 +38,7 @@ class Categoria: AppCompatActivity() {
         }
         cargarR()
         estadoBoton()
+        cargarCate()
 
     }
 
@@ -55,7 +56,7 @@ class Categoria: AppCompatActivity() {
             val categoria = Categoria(txtCodCate.text.toString().toInt(),txtNomCate.text.toString(),txtDesCate.text.toString())
             val resul = categoriaViewModel.insertarCategoria(categoria)
             if (resul == 1){
-                //cargarCate()
+                cargarCate()
                 Toast.makeText(this, "inserto correctamente Ctegoria", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this, "error en el registro", Toast.LENGTH_SHORT).show()
@@ -63,9 +64,9 @@ class Categoria: AppCompatActivity() {
         }
     }
 
-    /*fun cargarCate(){
+    fun cargarCate(){
         categoriaViewModel = ViewModelProvider(this).get(CategoriaViewModel::class.java)
-        val namesList = categoriaViewModel.getAll()
+        //val namesList = categoriaViewModel.getAll()
         //val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, namesList)
         categoriaViewModel.categoria.observe(this, Observer {
             categorias -> categorias?.let {
@@ -82,5 +83,5 @@ class Categoria: AppCompatActivity() {
         })
         //adapter.setDropDownViewResource(android.R.layout.simple_list_item_2)
         //listaCate.adapter = adapter
-    }*/
+    }
 }

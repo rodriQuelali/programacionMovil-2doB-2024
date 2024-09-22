@@ -44,6 +44,19 @@ class ProductoRepositorio(context:Context) {
         }
     }
 
+   /*fun getAll(): MutableList<Productos> {
+        val names = mutableListOf<Productos>()
+        val db = adminSQLiteOpenHelper.readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM producto", null)
+        if (cursor.moveToFirst()) {
+            do {
+                names.add(Productos(cursor.getString(cursor.getColumnIndexOrThrow("id_categoria")).toInt(), cursor.getString(cursor.getColumnIndexOrThrow("nombre")), cursor.getString(cursor.getColumnIndexOrThrow("descripcion"))))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return names
+    }*/
+
     // Eliminar un producto (aún no implementado completamente)
     fun deletePro(producto: Productos): Int {
 
