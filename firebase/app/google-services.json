@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "949253966064",
+    "project_id": "proyect-2dob-rsqv-24",
+    "storage_bucket": "proyect-2dob-rsqv-24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949253966064:android:f7774ea111a06ebabeda35",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3koE1OxcOHAHTkn3kg47qaydeoizASkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
